@@ -12,6 +12,7 @@ import com.springcore.onetoone.entity.Employee;
 public class App {
     public static void main(String[] args) {
         
+    		try {
             SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
             Session session = sessionFactory.openSession();
             session.beginTransaction();
@@ -49,6 +50,10 @@ public class App {
             for (AadharCard a : aadharCards) {
                 System.out.println("Aadhar Card: " + a.getAadharNumber() + ", Employee: " + a.getEmployee().getEmployeeName());
             }
+    		}
+    		catch (Exception e) {
+                e.printStackTrace();
+            } 
 
          
     }
